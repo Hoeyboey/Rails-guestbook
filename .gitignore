@@ -42,3 +42,7 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore test guidelines
+hbs-senior-developer-work-sample-test-marking-guide-june-2016-1.markdown
+hbs-senior-developer-work-sample-test-june-2016.markdown
