@@ -7,6 +7,11 @@
   </p>
  
   <p>
+    <%= form.label :poster_name %><br>
+    <%= form.text_field :poster_name %>
+  </p>
+
+  <p>
     <%= form.label :text %><br>
     <%= form.text_area :text %>
   </p>
@@ -22,12 +27,16 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th>Author</th>
+    <th>Time created</th>
   </tr>
  
   <% @article.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.text %></td>
+      <td><%= article.poster_name %></td>
+      <td><%= article.created_at %></td>
       <td><%= link_to 'Destroy', article_path(article),
 			  method: :delete,
 			  data: {confirm: 'Are you sure?' } %></td>
