@@ -21,6 +21,9 @@
   </p>
 <% end %>
 
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
 <h1>Listing articles</h1>
 
 <table>
@@ -36,7 +39,7 @@
       <td><%= article.title %></td>
       <td><%= article.text %></td>
       <td><%= article.poster_name %></td>
-      <td><%= article.created_at %></td>
+      <td><%= distance_of_time_in_words(article.created_at, Time.now)%> ago</td>
       <td><%= link_to 'Destroy', article_path(article),
 			  method: :delete,
 			  data: {confirm: 'Are you sure?' } %></td>

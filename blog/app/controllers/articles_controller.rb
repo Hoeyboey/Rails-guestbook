@@ -12,12 +12,13 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
-		redirect_to articles_path
+		redirect_to articles_path, notice: "Post successfully deleted!"
 	end
 	def create
 		@article = Article.new(article_params)
-		@article.save
-		redirect_to @article
+		@article.valid?
+		@article.save(validate: true)
+		redirect_to articles_path, notice: "Post successfully made!"
 	end
 	private 
 		def article_params
